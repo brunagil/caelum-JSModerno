@@ -9,6 +9,8 @@
 
 // MODULE PATTERN - Código tem um IIFE e um executável no final e cria um escopo estrito
 
+
+
 (function () {
 
     "use strict"
