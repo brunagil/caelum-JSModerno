@@ -1,0 +1,2 @@
+import './termosDeUso'
+import './pedePaginaInicial'
