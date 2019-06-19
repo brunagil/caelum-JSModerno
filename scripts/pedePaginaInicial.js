@@ -6,18 +6,47 @@
 
 // é LET pois ele vai ser concatenado no if abaixo dele, ganhando outro valor
 
-let paginaInicial = prompt('Escolha sua página inicial')
+//conversão automática de uma variável de um tipo pra outro
+//exemplo: paginaInicial citada como false e por dentro
 
-if (
-    paginaInicial.substring(0,7) != 'http://' &&
-    paginaInicial.substring(0,8) !== 'https://'
+// if(paginaInicial !== null && paginaInicial !== false)
 
-) {
-    paginaInicial = 'http://' + paginaInicial
+// Type Coercing - Conversão que o JS faz de forma automática, por baixo dos 'panos'
+//quando ele converte uma variável para outro tipo para fazer o script rodar
+
+const aceitouSalvar = JSON.parse(localStorage.getItem('aceitouSalvar'))   
+
+if(aceitouSalvar) {
+
+    let paginaInicial = localStorage.getItem('paginaInicial')
+
+    if (!paginaInicial) {
+        paginaInicial = prompt('Escolha sua página inicial')
+    }
+    
+    if (paginaInicial) {
+        if (
+            paginaInicial.substring(0, 7) !== 'http://' &&
+            paginaInicial.substring(0, 8) !== 'https://'
+        ) {
+            //Assigment-Atribuição
+            paginaInicial = 'http://' + paginaInicial
+        }
+    
+        $janelaPrincipal.src = paginaInicial
+        $inputEndereco.value = paginaInicial
+    
+        localStorage.setItem('paginaInicial', paginaInicial)
+    }
 }
 
-$janelaPrincipal.src = paginaInicial
-$inputEndereco.value = paginaInicial
 
-//var paginaInicial = "http://google.com"
+
+
+
+
+    //var paginaInicial = "http://google.com"
+
+
+
 

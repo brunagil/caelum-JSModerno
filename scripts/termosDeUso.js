@@ -3,7 +3,7 @@
 
 // Vamos armazenar o nome pedido e se a pessoa já 
 // havia aceitado os termos de uso e preenchido as informações, ou não 
-if (localStorage.getItem('aceitouTermos') === null) {
+if (!localStorage.getItem('aceitouTermos')) {
     // usamos CONST pois as informações, apesar de dinâmicas, não serão modificadas 
     const nome = prompt('Qual é o seu nome?')
 
