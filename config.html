@@ -1,18 +1,35 @@
-<link rel="stylesheet" href="styles/cake-config-33d6f649ee.css"/>
+<!DOCTYPE html>
+<html lang="en">
 
-<h1>Configurações</h1>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="styles/cake-config-33d6f649ee.css" />
+    <title>Configurações do Cake</title>
+</head>
 
-<label>
-    Página inicial:
-    <input type="text">
-</label>
+<body>
+    <section>
+        <h1>Configurações</h1>
 
-<label>
-    Permissão de compartilhamento:
-    <input type="checkbox">
-</label>
+        <label>
+            Página inicial:
+            <input type="text" id="$inputPaginaInicial">
+        </label>
 
-<button>
-    Salvar configurações
-</button>
-<a href="/">Voltar</a>
+        <label>
+            Permissão de compartilhamento:
+            <input type="checkbox" id="$inputPermitiuSalvar">
+        </label>
+
+        <button>
+            Salvar configurações
+        </button>
+        <a href="/">Voltar</a>
+    </section>
+</body>
+
+<script src="scripts/paginaConfiguracao.js"></script>
+
+</html>

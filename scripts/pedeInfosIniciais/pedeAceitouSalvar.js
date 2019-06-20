@@ -14,14 +14,17 @@
 //(function () {
 
     //"use strict"
-    const aceitouAnteriormente = localStorage.getItem("aceitouSalvar")
+    let aceitouSalvar = JSON.parse(localStorage.getItem("aceitouSalvar"))
 
-    let aceitouSalvar
+    //criamos a variável para trabalhar no conceito dos valores em string, 
+    //sem converter para boolean pelo json.parse
+    //let aceitouSalvar
     
-    if(!aceitouAnteriormente) {
+    //apenas se a pessoa nunca tiver preenchido essa informação (null)
+    if(aceitouSalvar === null) {
         //---não tem problema essa variável ter o mesmo nome que tem no pedePaginaInicial,
         //---pois essa variável aqui está apenas e somente no escopo do if 
-        const aceitouSalvar = confirm('Você aceita que a gente salve suas informações?')
+        aceitouSalvar = confirm('Você aceita que a gente salve suas informações?')
         if (!aceitouSalvar) {
             alert('Você pode mudar isso na página de configurações') 
         }
