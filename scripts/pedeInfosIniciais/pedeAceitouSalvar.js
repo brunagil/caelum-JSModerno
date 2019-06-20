@@ -9,12 +9,12 @@
 
 // ---MODULE PATTERN - Código tem um IIFE e um executável no final e cria um escopo estrito
 
-
+import aceitouSalvar from './storage/aceitouSalvar.js'
 
 //(function () {
 
     //"use strict"
-    let aceitouSalvar = JSON.parse(localStorage.getItem("aceitouSalvar"))
+    //let aceitouSalvar = JSON.parse(localStorage.getItem("aceitouSalvar"))
 
     //criamos a variável para trabalhar no conceito dos valores em string, 
     //sem converter para boolean pelo json.parse
@@ -22,9 +22,11 @@
     
     //apenas se a pessoa nunca tiver preenchido essa informação (null)
     if(aceitouSalvar === null) {
+        //---shadowing/sombra no módulo
+        //---redeclarando a variável com o mesmo nome
         //---não tem problema essa variável ter o mesmo nome que tem no pedePaginaInicial,
         //---pois essa variável aqui está apenas e somente no escopo do if 
-        aceitouSalvar = confirm('Você aceita que a gente salve suas informações?')
+        const aceitouSalvar = confirm('Você aceita que a gente salve suas informações?')
         if (!aceitouSalvar) {
             alert('Você pode mudar isso na página de configurações') 
         }
@@ -36,6 +38,6 @@
 //----invoca a função imediatamente no final dela
 //})()
 
-export default aceitouSalvar 
+//export default aceitouSalvar 
 
 //---dá pra escrever essa function também utilizando a arrow function (es6) . Ex: ;(() =>
