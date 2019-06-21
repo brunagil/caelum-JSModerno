@@ -1,8 +1,8 @@
 //$inputPaginaInicial.value = "google.com.br"
 //$inputPermitiuSalvar.checked = true;
 
-import paginaInicial, { setPaginaInicial } from '/scripts/storage/paginaInicial.js'
-import aceitouSalvar, { setAceitouSalvar } from '/scripts/storage/aceitouSalvar.js'
+import * as storagePaginaInicial from '/scripts/storage/paginaInicial.js'
+import * as storageAceitouSalvar from '/scripts/storage/aceitouSalvar.js'
 
 //real time                  mock/default
 $inputPaginaInicial.value = paginaInicial
@@ -16,7 +16,7 @@ $botaoSalvar.onclick = salvar
 //por nós e sim pelo navegador, ativada pelo botão
 // função de callback!
 function salvar() {
-    setPaginaInicial($inputPaginaInicial.value)
-    setAceitouSalvar($inputPermitiuSalvar.checked)
+    storagePaginaInicial.setPaginaInicial($inputPaginaInicial.value)
+    storageAceitouSalvar.setAceitouSalvar($inputPermitiuSalvar.checked)
 }
 

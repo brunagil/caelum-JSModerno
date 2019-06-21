@@ -9,7 +9,7 @@
 
 // ---MODULE PATTERN - Código tem um IIFE e um executável no final e cria um escopo estrito
 
-import aceitouSalvar, { setAceitouSalvar } from '/scripts/storage/aceitouSalvar.js'
+import * as storageAceitouSalvar from '/scripts/storage/aceitouSalvar.js'
 
 //(function () {
 
@@ -21,7 +21,7 @@ import aceitouSalvar, { setAceitouSalvar } from '/scripts/storage/aceitouSalvar.
     //let aceitouSalvar
     
     //apenas se a pessoa nunca tiver preenchido essa informação (null)
-    if(aceitouSalvar === null) {
+    if(storageAceitouSalvar.aceitouSalvar === null) {
         //---shadowing/sombra no módulo
         //---redeclarando a variável com o mesmo nome
         //---não tem problema essa variável ter o mesmo nome que tem no pedePaginaInicial,
@@ -31,10 +31,8 @@ import aceitouSalvar, { setAceitouSalvar } from '/scripts/storage/aceitouSalvar.
         if (!aceitouSalvar) {
             alert('Você pode mudar isso na página de configurações') 
         }
-        
-        setAceitouSalvar(aceitouSalvar)
+        storageAceitouSalvar.setAceitouSalvar(aceitouSalvar)
     }
-
     //alert('oi, eu sou uma função anônima')
 //----invoca a função imediatamente no final dela
 //})()

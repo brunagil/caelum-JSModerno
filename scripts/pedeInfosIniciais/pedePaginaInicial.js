@@ -16,10 +16,11 @@
 
 //const aceitouSalvar = JSON.parse(localStorage.getItem('aceitouSalvar'))   
 
-import aceitouSalvar from '/scripts/storage/aceitouSalvar.js'
-import paginaInicial, { setPedePaginaInicial } from '/scripts/storage/paginaInicial.js'
+import { aceitouSalvar as storageAceitouSalvar } from '/scripts/storage/aceitouSalvar.js'
+import { paginaInicial, setPedePaginaInicial } from '/scripts/storage/paginaInicial.js'
+//aceitouSalvar chega aqui >null< quando utilizamos o export default no aceitouSalvar.js
 
-if(aceitouSalvar === null || aceitouSalvar === true) {
+if(storageAceitouSalvar === null || storageAceitouSalvar === true) {
     let paginaInicialDefault = paginaInicial //sem shadowing!
 
    // let paginaInicial = localStorage.getItem('paginaInicial')
@@ -44,8 +45,7 @@ if(aceitouSalvar === null || aceitouSalvar === true) {
     }
 }
 
-
-    //var paginaInicial = "http://google.com"
+//var paginaInicial = "http://google.com"
 
 
 

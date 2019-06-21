@@ -1,9 +1,12 @@
-export default localStorage.getItem('paginaInicial')
+export let paginaInicial = localStorage.getItem('paginaInicial')
 
-export function setPaginaInicial(paginaInicial) {
-    localStorage.setItem('paginaInicial', paginaInicial)
+export function setPaginaInicial(valor) {
+    localStorage.setItem('paginaInicial', valor)
+}
+
+export function setPedePaginaInicial(valor) {
+    paginaInicial = valor
+    localStorage.setItem('paginaInicial', valor)
 } 
 
-export function setPedePaginaInicial(value) {
-    localStorage.setItem('paginaInicial', value)
-}
+
