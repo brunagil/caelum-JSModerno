@@ -17,7 +17,7 @@
 //const aceitouSalvar = JSON.parse(localStorage.getItem('aceitouSalvar'))   
 
 import aceitouSalvar from '/scripts/storage/aceitouSalvar.js'
-import paginaInicial from '/scripts/storage/paginaInicial.js'
+import paginaInicial, { setPedePaginaInicial } from '/scripts/storage/paginaInicial.js'
 
 if(aceitouSalvar === null || aceitouSalvar === true) {
     let paginaInicialDefault = paginaInicial //sem shadowing!
@@ -40,7 +40,7 @@ if(aceitouSalvar === null || aceitouSalvar === true) {
         $janelaPrincipal.src = paginaInicialDefault
         $inputEndereco.value = paginaInicialDefault
     
-        localStorage.setItem('paginaInicial', paginaInicialDefault)
+        setPedePaginaInicial(paginaInicialDefault)
     }
 }
 

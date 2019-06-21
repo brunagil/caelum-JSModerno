@@ -9,7 +9,7 @@
 
 // ---MODULE PATTERN - Código tem um IIFE e um executável no final e cria um escopo estrito
 
-import aceitouSalvar from '/scripts/storage/aceitouSalvar.js'
+import aceitouSalvar, { setAceitouSalvar } from '/scripts/storage/aceitouSalvar.js'
 
 //(function () {
 
@@ -32,7 +32,7 @@ import aceitouSalvar from '/scripts/storage/aceitouSalvar.js'
             alert('Você pode mudar isso na página de configurações') 
         }
         
-        localStorage.setItem('aceitouSalvar', aceitouSalvar)
+        setAceitouSalvar(aceitouSalvar)
     }
 
     //alert('oi, eu sou uma função anônima')
