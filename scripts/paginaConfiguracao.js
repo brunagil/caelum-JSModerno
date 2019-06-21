@@ -5,8 +5,8 @@ import * as storagePaginaInicial from '/scripts/storage/paginaInicial.js'
 import * as storageAceitouSalvar from '/scripts/storage/aceitouSalvar.js'
 
 //real time                  mock/default
-$inputPaginaInicial.value = paginaInicial
-$inputPermitiuSalvar.checked = aceitouSalvar
+$inputPaginaInicial.value = storagePaginaInicial.paginaInicial
+$inputPermitiuSalvar.checked = storageAceitouSalvar.aceitouSalvar
 
 // o que vai ser executado quando clicar
 // o que vai ser executado quando o evento de clique acontecer
