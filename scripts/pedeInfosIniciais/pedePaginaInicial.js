@@ -20,6 +20,8 @@ import { aceitouSalvar as storageAceitouSalvar } from '/scripts/storage/aceitouS
 import { paginaInicial, setPedePaginaInicial } from '/scripts/storage/paginaInicial.js'
 //aceitouSalvar chega aqui >null< quando utilizamos o export default no aceitouSalvar.js
 
+import { formataEndereco } from '/scripts/endereco/formataEndereco.js'
+
 if(storageAceitouSalvar === null || storageAceitouSalvar === true) {
     let paginaInicialDefault = paginaInicial //sem shadowing!
 
@@ -30,18 +32,13 @@ if(storageAceitouSalvar === null || storageAceitouSalvar === true) {
     }
     
     if (paginaInicialDefault) {
-        if (
-            paginaInicialDefault.substring(0, 7) !== 'http://' &&
-            paginaInicialDefault.substring(0, 8) !== 'https://'
-        ) {
-            //---Assigment-Atribuição
-            paginaInicialDefault = 'http://' + paginaInicialDefault
-        }
+
+        const enderecoCompleto = formataEndereco(paginaInicialDefault)
     
-        $janelaPrincipal.src = paginaInicialDefault
-        $inputEndereco.value = paginaInicialDefault
+        $janelaPrincipal.src = enderecoCompleto
+        $inputEndereco.value = enderecoCompleto
     
-        setPedePaginaInicial(paginaInicialDefault)
+        setPedePaginaInicial(enderecoCompleto)
     }
 }
 

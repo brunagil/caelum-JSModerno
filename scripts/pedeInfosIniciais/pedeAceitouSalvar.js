@@ -31,7 +31,12 @@ import * as storageAceitouSalvar from '/scripts/storage/aceitouSalvar.js'
         if (!aceitouSalvar) {
             alert('Você pode mudar isso na página de configurações') 
         }
-        storageAceitouSalvar.setAceitouSalvar(aceitouSalvar)
+        
+        const funcaoSalvar = aceitouSalvar === true
+        ? storageAceitouSalvar.setAceitou
+        : storageAceitouSalvar.setNaoAceitou
+
+    funcaoSalvar()
     }
     //alert('oi, eu sou uma função anônima')
 //----invoca a função imediatamente no final dela
