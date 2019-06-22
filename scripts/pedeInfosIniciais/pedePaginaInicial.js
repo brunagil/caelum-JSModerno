@@ -32,12 +32,7 @@ if(storageAceitouSalvar === null || storageAceitouSalvar === true) {
     }
     
     if (paginaInicialDefault) {
-
-        const enderecoCompleto = formataEndereco(paginaInicialDefault)
-    
-        $janelaPrincipal.src = enderecoCompleto
-        $inputEndereco.value = enderecoCompleto
-    
+        const enderecoCompleto = formataEndereco(paginaInicial)
         setPedePaginaInicial(enderecoCompleto)
     }
 }
