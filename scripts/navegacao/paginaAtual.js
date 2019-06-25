@@ -19,14 +19,31 @@ const paginaPraCarregar = paginaAtual !== null
 // $janelaPrincipal.onload = salvaPaginaAtual
 
     function salvaPaginaAtual() {
-        sessionStorage.setItem('paginaAtual', $janelaPrincipal.contentWindow.location.href)
+        const enderecoAcessado = $janelaPrincipal.contentWindow.location.href
+        sessionStorage.setItem('paginaAtual', enderecoAcessado)
+        //coloca os sites acessados na array de sites
+        listaSites.push(enderecoAcessado)
     }
 
 // função BOTÃO VOLTAR PARA A PÁGINA ANTERIOR
-    $botaoVoltar.addEventListener('click', function() {
-        alert('voltando')
-    })
 
-    $botaoAvancar.addEventListener('click', function() {
-        alert('avançando')
-    })
+let posicao = -1
+let listaSites = [] 
+
+$botaoVoltar.addEventListener('click', function() {
+    if(listaSites.length !== 1) {
+        posicao--
+        carregar(
+            listaSites[posicao] //acessar as posições dos sites na lista
+            )
+    }
+})
+
+$botaoAvancar.addEventListener('click', function() {
+    if(listaSites.length !== 1) {
+        posicao++
+        carregar(
+            listaSites[posicao] //acessar as posições dos sites na lista
+            )
+    }
+})
