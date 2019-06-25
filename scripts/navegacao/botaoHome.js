@@ -1,5 +1,7 @@
-$botaoHome.addEventListener('click', vaiParaHome)
+import { paginaInicial } from "/scripts/storage/paginaInicial.js";
+import { carregar } from '/scripts/navegacao/carregarHome.js'
 
-function vaiParaHome() {
-    alert('oi')
-}
+$botaoHome.addEventListener('click', function vaiParaHome() {
+    //alert('oi')
+    carregar(paginaInicial)
+})

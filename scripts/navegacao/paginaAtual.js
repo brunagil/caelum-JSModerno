@@ -22,4 +22,11 @@ const paginaPraCarregar = paginaAtual !== null
         sessionStorage.setItem('paginaAtual', $janelaPrincipal.contentWindow.location.href)
     }
 
+// função BOTÃO VOLTAR PARA A PÁGINA ANTERIOR
+    $botaoVoltar.addEventListener('click', function() {
+        alert('voltando')
+    })
 
+    $botaoAvancar.addEventListener('click', function() {
+        alert('avançando')
+    })
