@@ -17,7 +17,7 @@
 //const aceitouSalvar = JSON.parse(localStorage.getItem('aceitouSalvar'))   
 
 import { aceitouSalvar as storageAceitouSalvar } from '/scripts/storage/aceitouSalvar.js'
-import { paginaInicial, setPedePaginaInicial } from '/scripts/storage/paginaInicial.js'
+import { paginaInicial, setPaginaInicial } from '/scripts/storage/paginaInicial.js'
 //aceitouSalvar chega aqui >null< quando utilizamos o export default no aceitouSalvar.js
 
 import { formataEndereco } from '/scripts/endereco/formataEndereco.js'
@@ -32,8 +32,8 @@ if(storageAceitouSalvar === null || storageAceitouSalvar === true) {
     }
     
     if (paginaInicialDefault) {
-        const enderecoCompleto = formataEndereco(paginaInicial)
-        setPedePaginaInicial(enderecoCompleto)
+        const enderecoCompleto = formataEndereco(paginaInicialDefault)
+        setPaginaInicial(enderecoCompleto)
     }
 }
 

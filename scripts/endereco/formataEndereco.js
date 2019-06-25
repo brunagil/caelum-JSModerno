@@ -11,4 +11,4 @@ function formataEndereco(enderecoPraFormatar) {
 }
 
 //estamos exportando um objeto
-export { formataEndereco } 
+export { formataEndereco }
