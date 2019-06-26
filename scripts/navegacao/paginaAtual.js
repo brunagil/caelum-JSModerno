@@ -26,7 +26,8 @@ const enderecoCompleto = formataEndereco(paginaPraCarregar)
     })
 
     $janelaPrincipal.addEventListener('load', function salvaPaginaAtual() {
-    const endereco = $janelaPrincipal.contentWindow.location.href
+        const endereco = $janelaPrincipal.contentWindow.location.href
+        historico.adiciona(endereco)
         //coloca os sites acessados na array de sites
 
     })

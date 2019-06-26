@@ -1,10 +1,14 @@
-const listaSites = []
-let posicao = -1
+//TODODepois - transformar num módulo storage 
+
+const listaSites = JSON.parse(sessionStorage.getItem('historico')) || []  //type coercing
+let posicao = JSON.parse(sessionStorage.getItem('posicaoHistorico')) || -1
 
 export function adiciona(endereco) {
     if (endereco !== listaSites[posicao] ) {
         listaSites.splice(posicao + 1)
         listaSites.push(endereco)
+        sessionStorage.setItem('historico', JSON.stringify(listaSites))
+        sessionStorage.setItem('posicaoHistorico', posicao)
         posicao++
     }
 }

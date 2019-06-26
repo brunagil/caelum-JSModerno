@@ -38,3 +38,6 @@ function salvar() {
     storagePaginaInicial.setPaginaInicial($inputPaginaInicial.value)
 }
 
+$botaoLimpaTudo.addEventListener('click', function() {
+    
+})
