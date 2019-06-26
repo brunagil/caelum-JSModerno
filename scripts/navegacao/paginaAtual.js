@@ -1,4 +1,6 @@
 import * as storagePaginaInicial from '/scripts/storage/paginaInicial.js'
+import * as historico from '/scripts/navegacao/historico.js'
+
 import { formataEndereco } from '/scripts/endereco/formataEndereco.js'
 import { carregar } from '/scripts/navegacao/carregarHome.js'
 
@@ -29,14 +31,20 @@ const enderecoCompleto = formataEndereco(paginaPraCarregar)
 
     })
 
-// função BOTÃO VOLTAR PARA A PÁGINA ANTERIOR
 
 let listaSites = [] 
 let posicao = -1
 
+//eventos de clique no botão de voltar 
 $botaoVoltar.addEventListener('click', function() {
+    const enderecoVolta = historico.volta()
+    if(enderecoVolta !== undefined) carregar(enderecoVolta)
 
 })
 
+//eventos de clique no botão de avançar
+$botaoAvancar.addEventListener('click', function() {
+    const enderecoAvanca = historico.avanca()
+    if(enderecoAvanca !== undefined) carregar(enderecoAvanca)
 
 })

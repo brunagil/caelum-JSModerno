@@ -1,11 +1,12 @@
 const listaSites = []
 let posicao = -1
 
-export function adiciona(endereco)
-if (endereco !== listaSites[posicao]) {
-    listaSites.splice(posicao + 1)
-    listaSites.push(endereco)
-    posicao++
+export function adiciona(endereco) {
+    if (endereco !== listaSites[posicao] ) {
+        listaSites.splice(posicao + 1)
+        listaSites.push(endereco)
+        posicao++
+    }
 }
 
 export function volta() {
@@ -15,7 +16,6 @@ export function volta() {
         return listaSites[posicao]
     }
 }
-
 
 export function avanca() {
     const isUltimaPosicao = posicao === listaSites.length - 1
