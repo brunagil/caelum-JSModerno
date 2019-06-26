@@ -38,21 +38,26 @@ function salvar() {
     storagePaginaInicial.setPaginaInicial($inputPaginaInicial.value)
 }
 
+//remover todos os itens menos aceitouSalvar e aceitouTermos
 $botaoLimpaTudo.addEventListener('click', function() {
-    //remover todos os itens menos aceitouSalvar e aceitouTermos
+    const chavesPermanentes = [
+        'aceitouSalvar', 
+        'aceitouTermos'
+    ]
 
     const listaChavesLocalStorage = Object.keys(localStorage)
+    for(let chave of listaChavesLocalStorage) {
+        const isChavePermanente = chavesPermanentes.includes(chave)
 
-    for(let i = 0; i < listaChavesLocalStorage.length; i++) {
-        const chave = listaChavesLocalStorage[i]
-        localStorage.removeItem(chave)
-
+        if(!isChavePermanente) {
+            localStorage.removeItem(chave)
+        }
     }
 
     const listaChavesSessionStorage = Object.keys(sessionStorage)
 
     for(let chave of listaChavesSessionStorage) {
         sessionStorage.removeItem(chave)
-
     }
+    window.location.reload()
 })
