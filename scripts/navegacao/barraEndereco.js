@@ -1,24 +1,27 @@
 //alert('oi')
-
 import { carregar } from '/scripts/navegacao/carregarHome.js';
 import { formataEndereco } from '/scripts/endereco/formataEndereco.js';
+import { criaEndereco } from '/scripts/endereco/criaEndereco.js'
+
+let endereco
+    
+$janelaPrincipal.addEventListener('load', function() {
+    endereco = criaEndereco($janelaPrincipal.contentWindow.location.href)
+});
     
 $inputEndereco.addEventListener('focus', exibeEnderecoCompleto)
-
-$janelaPrincipal.addEventListener('blur', exibeEnderecoResumido)
-$inputEndereco.addEventListener('load', exibeEnderecoResumido)
+$inputEndereco.addEventListener('blur', exibeEnderecoResumido)
+$janelaPrincipal.addEventListener('load', exibeEnderecoResumido)
 
 function exibeEnderecoCompleto() {
-    $inputEndereco.value = $janelaPrincipal.contentWindow.location.href
+    $inputEndereco.value = endereco.urlCompleta
 }
 
 function exibeEnderecoResumido() {
-    const url = new URL($janelaPrincipal.contentWindow.location.href)
-    const enderecoResumido = url.hostname
-
-    $inputEndereco.value = enderecoResumido
+    $inputEndereco.value = endereco.urlResumida
 }
 
+//---Quando navegamos no site
 $inputEndereco.addEventListener('keyup', function(evento) {
     //---o navegador executou o callback e as informações que 
     //---ele está passando através do evento estão presentes
