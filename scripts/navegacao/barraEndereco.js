@@ -1,7 +1,7 @@
 //alert('oi')
 import { carregar } from '/scripts/navegacao/carregarHome.js';
 import { formataEndereco } from '/scripts/endereco/formataEndereco.js';
-import { criaEndereco } from '/scripts/endereco/criaEndereco.js'
+import { Endereco } from '/scripts/endereco/criaEndereco.js'
 
 let endereco
     
@@ -31,6 +31,7 @@ $inputEndereco.addEventListener('keyup', function(evento) {
     const apertouEnter = evento.key === 'Enter'
     if(apertouEnter) {
         const enderecoCompleto = formataEndereco($inputEndereco.value)
+        endereco = Endereco
         carregar(enderecoCompleto)
     }
 })
