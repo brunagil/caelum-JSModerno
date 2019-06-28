@@ -6,7 +6,9 @@ import { Endereco } from '/scripts/endereco/Endereco.js'
 let endereco
     
 $janelaPrincipal.addEventListener('load', function() {
-    endereco =  new Endereco($janelaPrincipal.contentWindow.location.href)
+    endereco =  new Endereco(
+        this.contentWindow.location.href
+    )
 });
     
 $inputEndereco.addEventListener('focus', exibeEnderecoCompleto)
