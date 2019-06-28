@@ -1,12 +1,12 @@
 //alert('oi')
 import { carregar } from '/scripts/navegacao/carregarHome.js';
 import { formataEndereco } from '/scripts/endereco/formataEndereco.js';
-import { Endereco } from '/scripts/endereco/criaEndereco.js'
+import { Endereco } from '/scripts/endereco/Endereco.js'
 
 let endereco
     
 $janelaPrincipal.addEventListener('load', function() {
-    endereco = criaEndereco($janelaPrincipal.contentWindow.location.href)
+    endereco =  new Endereco($janelaPrincipal.contentWindow.location.href)
 });
     
 $inputEndereco.addEventListener('focus', exibeEnderecoCompleto)
@@ -30,8 +30,7 @@ $inputEndereco.addEventListener('keyup', function(evento) {
 
     const apertouEnter = evento.key === 'Enter'
     if(apertouEnter) {
-        const enderecoCompleto = formataEndereco($inputEndereco.value)
-        endereco = Endereco
-        carregar(enderecoCompleto)
+        endereco = new Endereco($inputEndereco.value)
+        carregar(endereco)
     }
 })
