@@ -1,12 +1,14 @@
 //$inputPaginaInicial.value = "google.com.br"
 //$inputPermitiuSalvar.checked = true;
 
-import * as storagePaginaInicial from '/scripts/storage/paginaInicial.js'
-import * as storageAceitouSalvar from '/scripts/storage/aceitouSalvar.js'
+import * as storagePaginaInicial from '/scripts/storage/paginaInicial.js';
+import * as storageAceitouSalvar from '/scripts/storage/aceitouSalvar.js';
+import { Endereco } from '/scripts/endereco/Endereco.js';
+import { CakeEnderecoInvalidoError } from './erros/CakeError';
+
 //named export 
 //destructuring
 //desestruturação
-import { formataEndereco } from '/scripts/endereco/formataEndereco.js'
 
 //real time                  mock/default
 $inputPaginaInicial.value = storagePaginaInicial.paginaInicial
@@ -32,11 +34,21 @@ function salvar() {
     
     funcaoEscolhida()
 
-    const enderecoCompleto = formataEndereco($inputPaginaInicial.value)
-    $inputPaginaInicial.value = enderecoCompleto
-
-    storagePaginaInicial.setPaginaInicial($inputPaginaInicial.value)
-}
+    try {
+        const enderecoCompleto = new Endereco($inputPaginaInicial.value)
+        $inputPaginaInicial.value = enderecoCompleto.toString()
+            storagePaginaInicial.setPaginaInicial(enderecoCompleto)
+    } catch(error) {
+        if(error instanceof CakeEnderecoInvalidoError) {
+            $inputPaginaInicial.value = ""
+            console.warn(error.toString())
+            alert('inválido')
+        } else {
+            throw error
+        }
+    }
+        
+    }
 
 //remover todos os itens menos aceitouSalvar e aceitouTermos
 $botaoLimpaTudo.addEventListener('click', function() {

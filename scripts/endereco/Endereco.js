@@ -8,7 +8,6 @@ function Endereco(endereco) {
         return new Endereco(endereco)
     }
 
-
     let enderecoCompleto
     let enderecoResumido
 
@@ -16,7 +15,22 @@ function Endereco(endereco) {
         enderecoCompleto = 'blank'
         enderecoResumido = 'blank'
     } else {
-        const url = new URL(endereco) 
+        if  (
+            endereco.substring(0, 7) !== 'http://' &&
+            endereco.substring(0, 8) !== 'https://'
+            ) {
+                //atribuicao-assignment
+                endereco = "http://" + endereco
+            }
+
+            let url
+            try {
+                url = new URL (endereco) 
+            } catch(error) {
+                const erroCustomizado = new CakeEnderecoInvalidoError(endereco)
+                throw erroCustomizado
+            }
+
     
         if(url.hostname === 'localhost') {
             const paginaLocal = url.pathname.replace("/", "")
@@ -45,6 +59,12 @@ function Endereco(endereco) {
         // SE executar a função construtora sem o NEW, o this não existe (undefined)
         this.urlCompleta = enderecoCompleto
         this.urlResumida = enderecoResumido
+}
+
+Endereco.prototype = {
+    toString: function() {
+        return this.urlCompleta
+    }
 }
 
 export { Endereco }

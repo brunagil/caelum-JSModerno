@@ -3,6 +3,8 @@ import { carregar } from '/scripts/navegacao/carregarHome.js';
 import { formataEndereco } from '/scripts/endereco/formataEndereco.js';
 import { Endereco } from '/scripts/endereco/Endereco.js'
 
+import { CakeEnderecoInvalidoError } from '/scripts/erros/CakeError.js'
+
 let endereco
     
 $janelaPrincipal.addEventListener('load', function() {
@@ -32,7 +34,16 @@ $inputEndereco.addEventListener('keyup', function(evento) {
 
     const apertouEnter = evento.key === 'Enter'
     if(apertouEnter) {
-        endereco = new Endereco($inputEndereco.value)
+
+        try {
+            endereco = new Endereco($inputEndereco.value)
+        } catch(error) {  //variável de erro
+            if(error instanceof CakeEnderecoInvalidoError) {
+                alert(error.message)
+            } else {
+                throw error
+            }
+        }
         carregar(endereco)
     }
 })
